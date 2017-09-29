@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_activity_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
@@ -18,7 +19,7 @@
         app:checked="false"
         app:circle_color="#795548"
         app:stroke_color="#607D8B"
-        app:stroke_width="2dp" />
+        app:stroke_width="2dp"/>
 
     <com.github.lguipeng.library.animcheckbox.AnimCheckBox
         android:id="@+id/checkbox_1"
@@ -60,6 +61,7 @@
         app:checked="true"
         app:circle_color="#9C27B0"
         app:stroke_color="#512DA8"
-        app:stroke_width="4dp" />
+        app:stroke_width="4dp"
+        app:duration = "10000"/>
 
 </LinearLayout>

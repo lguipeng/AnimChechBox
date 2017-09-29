@@ -24,7 +24,7 @@ import com.github.lguipeng.library.R;
 public class AnimCheckBox extends View implements Checkable {
     private final double mSin27 = Math.sin(Math.toRadians(27));
     private final double mSin63 = Math.sin(Math.toRadians(63));
-    private final int mDuration = 500;
+    private int mDuration = 500;
     private final int defaultSize = 40;
     private Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private int radius;
@@ -63,6 +63,7 @@ public class AnimCheckBox extends View implements Checkable {
             mStrokeWidth = (int) array.getDimension(R.styleable.AnimCheckBox_stroke_width, dip(mStrokeWidth));
             mStrokeColor = array.getColor(R.styleable.AnimCheckBox_stroke_color, mStrokeColor);
             mCircleColor = array.getColor(R.styleable.AnimCheckBox_circle_color, Color.WHITE);
+	        mDuration = array.getInteger(R.styleable.AnimCheckBox_duration, 500);
             checked = array.getBoolean(R.styleable.AnimCheckBox_checked, false);
             array.recycle();
         } else {
@@ -287,6 +288,40 @@ public class AnimCheckBox extends View implements Checkable {
         if (mOnCheckedChangeListener != null) {
             mOnCheckedChangeListener.onChange(this, mChecked);
         }
+    }
+
+    public void setStrokeColor(int color)
+    {
+	    mStrokeColor = color;
+	    mPaint.setColor(mStrokeColor);
+	    invalidate();
+    }
+
+    public void setCircleColor(int color)
+    {
+	    mCircleColor = color;
+	    mPaint.setColor(mCircleColor);
+	    invalidate();
+    }
+
+    public void setAnimationDuration(int duration)
+    {
+	    mDuration = duration;
+    }
+
+    /**
+     * this needs to happen for the init checky checks**/
+    public void setStartupChecked()
+    {
+	    //this.setChecked(true);
+	    this.setCheckedViewInner(true, false);
+    }
+
+    public void setStrokeWidth(int width)
+    {
+	    mStrokeWidth = width;
+	    mPaint.setStrokeWidth(mStrokeWidth);
+	    invalidate();
     }
 
     /**

@@ -9,5 +9,7 @@
 
         <attr name="checked" format="boolean" />
 
+        <attr name="duration" format="integer" />
+
     </declare-styleable>
 </resources>
